@@ -53,7 +53,7 @@ def sort_words (my_list):
 '''
 4/1/23
 
-Crea una función sort_two_arrays(arr1, arr2) que toma dos listas ordenadas y devuelve una 
+4. Crea una función sort_two_arrays(arr1, arr2) que toma dos listas ordenadas y devuelve una 
 nueva lista ordenada que contiene todos los elementos de ambas listas.
 
 '''
@@ -69,7 +69,7 @@ def sort_two_arrays(arr1,arr2):
 '''
 5/1/23
 
-Escribe una función en Python llamada unique_values que tenga como entrada una lista de números 
+5. Escribe una función en Python llamada unique_values que tenga como entrada una lista de números 
 y devuelva una lista con los valores únicos de la lista de entrada. Por ejemplo:
 
 Out put
@@ -85,3 +85,58 @@ def unique_values (my_list):
     print(new_list)
 
 # unique_values([1,2,3,2,1])
+
+'''
+6/1/23
+
+6. Implementa una función contar_vocales(texto) que tome una cadena de texto y 
+devuelva un diccionario con las vocales como claves y el número de veces que aparecen 
+en el texto como valores. La función debe ignorar mayúsculas y minúsculas.
+
+'''
+
+texto = "Hola, mundo"
+
+vocals = {'a':0,
+        'e':0,
+        'i':0,
+        'o':0,
+        'u':0}
+
+
+def contar_vocales(my_str):
+    my_str_low = my_str.lower()
+    for letter in my_str_low:
+        if letter in vocals:
+            vocals[letter] += 1
+    new_vocals= {x:y for x,y in vocals.items() if y!=0}
+    print(new_vocals)
+
+# contar_vocales(texto)
+
+''''
+7/1/23
+
+7. Escribe una función top_words(text: str, k: int) -> List[str] que devuelva una lista con las k 
+palabras más comunes en text.
+
+top_words(text, 2)
+
+out put 
+
+['ejemplo', 'de']
+
+'''
+
+from collections import Counter
+
+text = "Este es un ejemplo de texto de ejemplo."
+
+def top_words (text: str,k:int):
+    to_lower = text.lower()
+    my_list = sorted(to_lower.split())
+    my_counter = Counter(my_list).most_common(k)
+    print(my_counter)
+
+# top_words(text,2)
+# [('de', 2), ('ejemplo', 1)]
