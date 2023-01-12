@@ -174,3 +174,77 @@ for i in range(2000,3201):
     else:
         continue
 #print(lst)
+
+'''
+10/1/23
+
+10. Se tienen los resultados de una encuesta de satisfacción en una empresa en forma de un diccionario,
+# donde cada clave es el nombre del empleado y el valor es una lista con sus respuestas a una escala de 1 a 5.
+
+resultados = {
+    "Juan": [4, 3, 5, 4, 4],
+    "Maria": [5, 5, 4, 3, 5],
+    "Pedro": [5, 4, 4, 3, 5],
+    "Ana": [4, 4, 4, 5, 5],
+    "Lucia": [5, 5, 4, 5, 3]
+}
+
+# Se desea calcular el promedio de la encuesta para cada empleado y almacenarlo en un nuevo diccionario,
+# donde cada clave es el nombre del empleado y el valor es el promedio de sus respuestas.
+# Crear una funcion para calcular el promedio y otra para mostrar los promedios
+
+'''
+
+import numpy
+
+resultados = {
+    "Juan": [4, 3, 5, 4, 4],
+    "Maria": [5, 5, 4, 3, 5],
+    "Pedro": [5, 4, 4, 3, 5],
+    "Ana": [4, 4, 4, 5, 5],
+    "Lucia": [5, 5, 4, 5, 3]
+}
+
+def calcular_promedio (lst):
+    dct = {}
+    for i in lst:
+        dct[i] = numpy.average(lst[i])
+    print(dct)
+
+# calcular_promedio(resultados)
+# {'Juan': 4.0, 'Maria': 4.4, 'Pedro': 4.2, 'Ana': 4.4, 'Lucia': 4.4}
+
+'''
+11/1/23
+
+11. Dado un diccionario que contiene como claves los nombres de productos y como valores una tupla 
+con su precio y su stock, crear una función que calcule el valor total en inventario de todos los productos.
+
+'''
+
+inventario = {"producto1": (10, 5), "producto2": (15, 3), "producto3": (20, 2)}
+
+def calcular_valor_total (products):
+    total = 0
+    for i in products:
+        total += products[i][0] * products[i][1]
+    print(total)
+
+#calcular_valor_total(inventario)
+
+'''
+12/1/23
+
+12. Question: With a given integral number n, write a program to generate a dictionary that contains (i, i*i) 
+such that is an integral number between 1 and n (both included). and then the program should print the dictionary. 
+Suppose the following input is supplied to the program: 8 Then, 
+the output should be: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
+
+'''
+def product_of (integral):
+    dct = {}
+    for i in range(1,integral + 1):
+        dct[i]= i*i
+    print(dct)
+
+#product_of(8)
